@@ -23,14 +23,14 @@ public void userInputCommand()
 	email.sendKeys("manjima123@mail.com");
 	WebElement password=driver.findElement(By.name("Password"));
 	password.sendKeys("manjima123");
-	WebElement login_reg=driver.findElement(By.className("button-1 login-button"));
+	WebElement login_reg=driver.findElement(By.xpath("//input[@value='Log in']"));
 	login_reg.click();
 	
 }
 	public static void main(String[] args)
 	{
 		DemoWebLogin obj=new DemoWebLogin();
-		obj.webElementCommand();
+		//obj.webElementCommand();
 		obj.userInputCommand();
 
 	}

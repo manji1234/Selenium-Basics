@@ -1,8 +1,11 @@
 package com.selenium.basics;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class XpathGuruDemo
 {
@@ -10,7 +13,6 @@ public class XpathGuruDemo
 	{
 		WebDriver driver=new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("https://demo.guru99.com/test/newtours/register.php");
 		WebElement first_name=driver.findElement(By.name("firstName"));
 		first_name.sendKeys("Manjima");
 		WebElement last_name=driver.findElement(By.xpath("//input[@name='lastName']"));
@@ -39,11 +41,35 @@ public class XpathGuruDemo
 		submit.click();
 		
 	}
+	public void verifyValuesFromDropDown()
+	{
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demo.guru99.com/test/newtours/register.php");
+		WebElement dropdown=driver.findElement(By.xpath("//select[@name='country']"));
+		Select select=new Select(dropdown);
+		select.selectByIndex(9);
+		
+	}
+	public void displayAllDropDownList()
+	{
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://demo.guru99.com/test/newtours/register.php");
+		WebElement dropdown=driver.findElement(By.xpath("//select[@name='country']"));
+		Select select=new Select(dropdown);
+		List<WebElement>listall=select.getOptions();
+		System.out.println(listall.size());
+		
+	}
+	//public void getDrop
 
 	public static void main(String[] args) 
 	{
 		XpathGuruDemo  obj=new  XpathGuruDemo ();
-		    obj.registerInfo();
+		    //obj.registerInfo();
+		     // obj.verifyValuesFromDropDown();
+		  //obj.displayAllDropDownList();
 		 
 
 	}
