@@ -17,6 +17,10 @@ public class Base
 			}
 	else if(browsername.equals("Edge"))
 	{
+		driver=new EdgeDriver();
+	}
+	else if(browsername.equals("Firefox"))
+	{
 		driver=new FirefoxDriver();
 	}
 	else
@@ -30,10 +34,10 @@ public class Base
  {
 	 initializeBrowser("Chrome");   //this.
  }
- @AfterMethod
- public void closeBrowser()
- {
-	 driver.close();
- }
+// @AfterMethod
+ //public void closeBrowser()
+ //{
+	// driver.close();
+ //}
  
 }
